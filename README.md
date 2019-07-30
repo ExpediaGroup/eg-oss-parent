@@ -2,7 +2,7 @@
 
 ## Start using
 
-You can obtain this library from Maven Central:
+You can obtain this POM from Maven Central:
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.expediagroup/eg-oss-parent/badge.svg?subject=com.expediagroup:eg-oss-parent.jar)](https://maven-badges.herokuapp.com/maven-central/com.expediagroup/eg-oss-parent) [![Build Status](https://travis-ci.org/ExpediaGroup/eg-oss-parent.svg?branch=master)](https://travis-ci.org/ExpediaGroup/eg-oss-parent) ![GitHub license](https://img.shields.io/github/license/ExpediaGroup/eg-oss-parent.svg)
 
