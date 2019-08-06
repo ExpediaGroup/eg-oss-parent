@@ -46,6 +46,7 @@
     <jdk.version>1.8</jdk.version>
     <license.maven.plugin.version>3.0</license.maven.plugin.version>
     <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
+    <maven.spotbugs.plugin.version>3.1.12.2</maven.spotbugs.plugin.version>
     <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
     <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
     <maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
@@ -145,6 +146,18 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${maven.spotbugs.plugin.version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <xmlOutput>true</xmlOutput>
+          <effort>Max</effort>
+          <threshold>Low</threshold>
+          <excludeFilterFile>file://${project.build.directory}/plugin-config/spotbugs/hotels-spotbugs-exclude.xml</excludeFilterFile>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
