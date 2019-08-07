@@ -3,7 +3,7 @@
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.1.0</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
@@ -60,6 +60,12 @@
     <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
     <lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
+
+    <!-- EG specific plugin properties -->
+    <spotbugs.config>file://${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
+    <checkstyle.config>file://${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
+    <mycila.config.header>file://${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
+    <mycila.config.header.def>file://${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
   </properties>
 
   <distributionManagement>
@@ -156,7 +162,7 @@
           <xmlOutput>true</xmlOutput>
           <effort>Max</effort>
           <threshold>Low</threshold>
-          <excludeFilterFile>file://${project.build.directory}/plugin-config/spotbugs/hotels-spotbugs-exclude.xml</excludeFilterFile>
+          <excludeFilterFile>${spotbugs.config}</excludeFilterFile>
         </configuration>
       </plugin>
       <plugin>
@@ -164,7 +170,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${maven.checkstyle.plugin.version}</version>
         <configuration>
-          <configLocation>file://${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</configLocation>
+          <configLocation>${checkstyle.config}</configLocation>
         </configuration>
       </plugin>
       <plugin>
@@ -248,9 +254,9 @@
           </dependency>
         </dependencies>
         <configuration>
-          <header>file://${project.build.directory}/plugin-config/mycila/APACHE-2.txt</header>
+          <header>${mycila.config.header}</header>
           <headerDefinitions>
-            <headerDefinition>file://${project.build.directory}/plugin-config/mycila/eg-definitions.xml</headerDefinition>
+            <headerDefinition>${mycila.config.header.def}</headerDefinition>
           </headerDefinitions>
           <properties>
             <owner>Expedia, Inc.</owner>
@@ -438,7 +444,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${maven.checkstyle.plugin.version}</version>
         <configuration>
-          <configLocation>file://${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</configLocation>
+          <configLocation>${checkstyle.config}</configLocation>
         </configuration>
       </plugin>
     </plugins>
