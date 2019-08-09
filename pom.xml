@@ -3,7 +3,7 @@
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.0-SNAPSHOT</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
@@ -41,7 +41,7 @@
     <buildnumber.maven.plugin.version>1.4</buildnumber.maven.plugin.version>
     <coveralls.maven.plugin.version>4.3.0</coveralls.maven.plugin.version>
     <failsafe.maven.plugin.version>2.22.0</failsafe.maven.plugin.version>
-    <eg.oss.plugin.config.version>1.0.0</eg.oss.plugin.config.version>
+    <eg.oss.plugin.config.version>1.1.0</eg.oss.plugin.config.version>
     <jacoco.version>0.8.2</jacoco.version>
     <jdk.version>1.8</jdk.version>
     <license.maven.plugin.version>3.0</license.maven.plugin.version>
@@ -62,10 +62,10 @@
     <lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
 
     <!-- EG specific plugin properties -->
-    <spotbugs.config>file://${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
-    <checkstyle.config>file://${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
-    <mycila.config.header>file://${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
-    <mycila.config.header.def>file://${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
+    <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
+    <checkstyle.config>${project.build.directory}/checkstyle/eg-checkstyle.xml</checkstyle.config>
+    <mycila.config.header>${project.build.directory}/mycila/APACHE-2.txt</mycila.config.header>
+    <mycila.config.header.def>${project.build.directory}/mycila/eg-definitions.xml</mycila.config.header.def>
   </properties>
 
   <distributionManagement>
