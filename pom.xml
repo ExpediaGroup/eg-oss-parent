@@ -63,9 +63,9 @@
 
     <!-- EG specific plugin properties -->
     <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
-    <checkstyle.config>${project.build.directory}/checkstyle/eg-checkstyle.xml</checkstyle.config>
-    <mycila.config.header>${project.build.directory}/mycila/APACHE-2.txt</mycila.config.header>
-    <mycila.config.header.def>${project.build.directory}/mycila/eg-definitions.xml</mycila.config.header.def>
+    <checkstyle.config>${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
+    <mycila.config.header>${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
+    <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
   </properties>
 
   <distributionManagement>
