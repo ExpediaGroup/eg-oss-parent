@@ -118,6 +118,34 @@
         </configuration>
       </plugin>
       <plugin>
+        <!-- this is an exception to alphabetical sorting rules of plugins since we need it to run 
+             the "validate" phase *before* some other plugings below -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>${maven.dependency.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>unpack</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.expediagroup</groupId>
+                  <artifactId>eg-oss-plugin-config</artifactId>
+                  <version>${eg.oss.plugin.config.version}</version>
+                  <type>jar</type>
+                  <overWrite>false</overWrite>
+                  <outputDirectory>${project.build.directory}/plugin-config</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
         <version>${license.maven.plugin.version}</version>
@@ -169,32 +197,6 @@
           <showWarnings>true</showWarnings>
           <parameters>true</parameters>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>${maven.dependency.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>unpack</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.expediagroup</groupId>
-                  <artifactId>eg-oss-plugin-config</artifactId>
-                  <version>${eg.oss.plugin.config.version}</version>
-                  <type>jar</type>
-                  <overWrite>false</overWrite>
-                  <outputDirectory>${project.build.directory}/plugin-config</outputDirectory>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
