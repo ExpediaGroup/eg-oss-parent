@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.0-SNAPSHOT</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
@@ -38,34 +39,36 @@
   </licenses>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <jdk.version>1.8</jdk.version>
+
     <buildnumber.maven.plugin.version>1.4</buildnumber.maven.plugin.version>
     <coveralls.maven.plugin.version>4.3.0</coveralls.maven.plugin.version>
-    <failsafe.maven.plugin.version>2.22.0</failsafe.maven.plugin.version>
     <eg.oss.plugin.config.version>1.1.0</eg.oss.plugin.config.version>
+    <failsafe.maven.plugin.version>2.22.0</failsafe.maven.plugin.version>
     <jacoco.version>0.8.4</jacoco.version>
-    <jdk.version>1.8</jdk.version>
     <license.maven.plugin.version>3.0</license.maven.plugin.version>
+    <lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
     <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
-    <maven.spotbugs.plugin.version>3.1.12.2</maven.spotbugs.plugin.version>
     <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
     <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+    <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
     <maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
     <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
-    <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
-    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+    <maven.spotbugs.plugin.version>3.1.12.2</maven.spotbugs.plugin.version>
     <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
-    <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
-    <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
-    <lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
+    <spotless.maven.plugin.version>1.27.0</spotless.maven.plugin.version>
 
     <!-- EG specific plugin properties -->
-    <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
     <checkstyle.config>${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
     <mycila.config.header>${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
     <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
+    <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
   </properties>
 
   <distributionManagement>
@@ -82,76 +85,25 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>${maven.dependency.plugin.version}</version>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless.maven.plugin.version}</version>
         <executions>
           <execution>
-            <id>unpack</id>
-            <phase>validate</phase>
+            <phase>process-sources</phase>
             <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.expediagroup</groupId>
-                  <artifactId>eg-oss-plugin-config</artifactId>
-                  <version>${eg.oss.plugin.config.version}</version>
-                  <type>jar</type>
-                  <overWrite>false</overWrite>
-                  <outputDirectory>${project.build.directory}/plugin-config</outputDirectory>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.plugin.version}</version>
-        <configuration>
-          <source>${jdk.version}</source>
-          <target>${jdk.version}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <showWarnings>true</showWarnings>
-          <parameters>true</parameters>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven.jar.plugin.version}</version>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Build-Version>${project.version}</Build-Version>
-              <Build-DateTime>${maven.build.timestamp}</Build-DateTime>
-              <Maven-GroupId>${project.groupId}</Maven-GroupId>
-              <Maven-ArtifactId>${project.artifactId}</Maven-ArtifactId>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
-        <executions>
-          <execution>
-            <id>jacoco-initialize</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>jacoco-site</id>
-            <phase>package</phase>
-            <goals>
-              <goal>report</goal>
+              <goal>apply</goal>
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <java>
+            <removeUnusedImports />
+            <importOrder>
+              <order>\#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels</order>
+            </importOrder>
+          </java>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
@@ -163,78 +115,6 @@
           <effort>Max</effort>
           <threshold>Low</threshold>
           <excludeFilterFile>${spotbugs.config}</excludeFilterFile>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven.checkstyle.plugin.version}</version>
-        <configuration>
-          <configLocation>${checkstyle.config}</configLocation>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven.javadoc.plugin.version}</version>
-        <configuration>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-        <executions>
-          <execution>
-            <id>aggregate</id>
-            <goals>
-              <goal>aggregate</goal>
-            </goals>
-            <phase>site</phase>
-          </execution>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>${nexus.staging.maven.plugin.version}</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>sonatype-nexus-staging</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>${maven.release.plugin.version}</version>
-        <configuration>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
-          <useReleaseProfile>false</useReleaseProfile>
-          <releaseProfiles>sonatype-oss-release</releaseProfiles>
-          <goals>deploy</goals>
-        </configuration>
-      </plugin>
-
-      <!-- used to determine the current year -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>${buildnumber.maven.plugin.version}</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>create-timestamp</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <timestampFormat>yyyy</timestampFormat>
-          <timestampPropertyName>current.year</timestampPropertyName>
         </configuration>
       </plugin>
       <plugin>
@@ -278,6 +158,150 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <showWarnings>true</showWarnings>
+          <parameters>true</parameters>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>${maven.dependency.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>unpack</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.expediagroup</groupId>
+                  <artifactId>eg-oss-plugin-config</artifactId>
+                  <version>${eg.oss.plugin.config.version}</version>
+                  <type>jar</type>
+                  <overWrite>false</overWrite>
+                  <outputDirectory>${project.build.directory}/plugin-config</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven.checkstyle.plugin.version}</version>
+        <configuration>
+          <configLocation>${checkstyle.config}</configLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version}</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Build-Version>${project.version}</Build-Version>
+              <Build-DateTime>${maven.build.timestamp}</Build-DateTime>
+              <Maven-GroupId>${project.groupId}</Maven-GroupId>
+              <Maven-ArtifactId>${project.artifactId}</Maven-ArtifactId>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven.javadoc.plugin.version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+        <executions>
+          <execution>
+            <id>aggregate</id>
+            <goals>
+              <goal>aggregate</goal>
+            </goals>
+            <phase>site</phase>
+          </execution>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven.release.plugin.version}</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <useReleaseProfile>false</useReleaseProfile>
+          <releaseProfiles>sonatype-oss-release</releaseProfiles>
+          <goals>deploy</goals>
+        </configuration>
+      </plugin>
+      <!-- used to determine the current year -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>${buildnumber.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create-timestamp</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <timestampFormat>yyyy</timestampFormat>
+          <timestampPropertyName>current.year</timestampPropertyName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>${nexus.staging.maven.plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>sonatype-nexus-staging</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
     </plugins>
 
     <pluginManagement>
@@ -306,7 +330,6 @@
             </execution>
           </executions>
         </plugin>
-
       </plugins>
     </pluginManagement>
   </build>
@@ -412,10 +435,18 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>${maven.site.plugin.version}</version>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven.checkstyle.plugin.version}</version>
         <configuration>
-          <outputEncoding>UTF-8</outputEncoding>
+          <configLocation>${checkstyle.config}</configLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven.javadoc.plugin.version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
       <plugin>
@@ -433,18 +464,10 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven.javadoc.plugin.version}</version>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${maven.site.plugin.version}</version>
         <configuration>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven.checkstyle.plugin.version}</version>
-        <configuration>
-          <configLocation>${checkstyle.config}</configLocation>
+          <outputEncoding>UTF-8</outputEncoding>
         </configuration>
       </plugin>
     </plugins>
