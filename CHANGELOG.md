@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0] - 2020-01-22
+### Added
+- Explicitly add `maven-surefire-plugin` as a build plugin for JUnit5 usage.
+
 ## [1.2.0] - 2020-01-10
 ### Added
 - Added [Spotless Maven Plugin](https://github.com/diffplug/spotless/tree/master/plugin-maven), version 1.27.0 with 
