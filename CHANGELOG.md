@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.3.0] - 2020-01-22
+## [1.3.1] - 2020-01-22
+### Changed
+- Same as 1.3.0 release, required additional release due to Maven Central timeouts.
+
+## [1.3.0] - 2020-01-22 [YANKED]
+### Yanked
+- Timeouts during Maven release resulted in an incomplete deployment to Maven Central.
+
 ### Added
 - Explicitly add `maven-surefire-plugin` as a build plugin for JUnit5 usage.
 
