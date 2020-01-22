@@ -3,7 +3,7 @@
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>1.3.0-SNAPSHOT</version>
+  <version>1.3.2-SNAPSHOT</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
