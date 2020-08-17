@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - renamed `travis` profile to `coveralls`.
 
-
 ## [1.3.1] - 2020-01-22
 ### Changed
 - Same as 1.3.0 release, required additional release due to Maven Central timeouts.
