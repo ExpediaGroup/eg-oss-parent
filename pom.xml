@@ -424,7 +424,7 @@
       </build>
     </profile>
     <profile>
-      <id>travis</id>
+      <id>coveralls</id>
       <build>
         <plugins>
           <plugin>
