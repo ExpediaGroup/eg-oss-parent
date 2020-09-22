@@ -44,7 +44,7 @@
 
     <buildnumber.maven.plugin.version>1.4</buildnumber.maven.plugin.version>
     <coveralls.maven.plugin.version>4.3.0</coveralls.maven.plugin.version>
-    <eg.oss.plugin.config.version>1.2.0</eg.oss.plugin.config.version>
+    <eg.oss.plugin.config.version>1.2.0-SNAPSHOT</eg.oss.plugin.config.version>
     <failsafe.maven.plugin.version>3.0.0-M5</failsafe.maven.plugin.version>
     <jacoco.version>0.8.6</jacoco.version>
     <license.maven.plugin.version>3.0</license.maven.plugin.version>
