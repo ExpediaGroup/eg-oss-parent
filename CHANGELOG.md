@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.1.0] - TBD
 ### Changed
-- Updated `plugin.config` from 0.0.2 to 0.0.3.
+- Updated `eg.oss.plugin.config` from 1.1.0 to 1.2.0.
 - Updated `failsafe.maven.plugin` from 2.22.0 from to 3.0.0-M5.
 - Updated `Jacoco` from 0.8.4 to 0.8.6.
 - Updated `checkstyle.plugin` from 3.0.0 to 3.1.1.
