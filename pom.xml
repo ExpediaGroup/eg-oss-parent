@@ -44,24 +44,24 @@
 
     <buildnumber.maven.plugin.version>1.4</buildnumber.maven.plugin.version>
     <coveralls.maven.plugin.version>4.3.0</coveralls.maven.plugin.version>
-    <eg.oss.plugin.config.version>1.1.0</eg.oss.plugin.config.version>
-    <failsafe.maven.plugin.version>2.22.0</failsafe.maven.plugin.version>
-    <jacoco.version>0.8.4</jacoco.version>
+    <eg.oss.plugin.config.version>1.2.0</eg.oss.plugin.config.version>
+    <failsafe.maven.plugin.version>3.0.0-M5</failsafe.maven.plugin.version>
+    <jacoco.version>0.8.6</jacoco.version>
     <license.maven.plugin.version>3.0</license.maven.plugin.version>
     <lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
-    <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
-    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-    <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+    <maven.checkstyle.plugin.version>3.1.1</maven.checkstyle.plugin.version>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.dependency.plugin.version>3.1.2</maven.dependency.plugin.version>
     <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
-    <maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
-    <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
-    <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
-    <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
-    <maven.spotbugs.plugin.version>3.1.12.2</maven.spotbugs.plugin.version>
-    <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
-    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+    <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
+    <maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
+    <maven.site.plugin.version>3.9.1</maven.site.plugin.version>
+    <maven.source.plugin.version>3.2.0</maven.source.plugin.version>
+    <maven.spotbugs.plugin.version>4.0.4</maven.spotbugs.plugin.version>
+    <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+    <maven.release.plugin.version>3.0.0-M1</maven.release.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
-    <spotless.maven.plugin.version>1.27.0</spotless.maven.plugin.version>
+    <spotless.maven.plugin.version>2.4.1</spotless.maven.plugin.version>
 
     <!-- EG specific plugin properties -->
     <checkstyle.config>${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
