@@ -21,7 +21,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Updated `release.plugin` from 2.5.3 to 3.0.0-M1.
 - Updated `spotless.maven.plugin` from 1.27.0 to 2.4.1.
 
-
 ## [2.0.0] - 2020-08-17
 ### Changed
 - renamed `travis` profile to `coveralls`.
