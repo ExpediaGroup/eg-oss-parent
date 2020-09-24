@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - TBD
+### Changed
+- Updated `eg.oss.plugin.config` from 1.1.0 to 1.2.0.
+- Updated `failsafe.maven.plugin` from 2.22.0 from to 3.0.0-M5.
+- Updated `Jacoco` from 0.8.4 to 0.8.6.
+- Updated `checkstyle.plugin` from 3.0.0 to 3.1.1.
+- Updated `compiler.plugin` from 3.8.0 to 3.8.1.
+- Updated `dependency.plugin` from 3.1.1 to 3.1.2.
+- Updated `jar.plugin` from 3.1.0 to 3.2.0.
+- Updated `javadoc.plugin` from 3.0.1 to 3.2.0.
+- Updated `site.plugin` from 3.7.1 to 3.9.1.
+- Updated `source.plugin` from 3.0.1 to 3.2.0.
+- Updated `spotbugs.plugin` from 3.1.12.2 to 4.0.4.
+- Updated `surefire.plugin` from 2.22.0 to 3.0.0-M5.
+- Updated `release.plugin` from 2.5.3 to 3.0.0-M1.
+- Updated `spotless.maven.plugin` from 1.27.0 to 2.4.1.
+
 ## [2.0.0] - 2020-08-17
 ### Changed
 - renamed `travis` profile to `coveralls`.
