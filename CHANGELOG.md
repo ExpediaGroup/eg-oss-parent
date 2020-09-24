@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.1.0] - TBD
+## [2.1.0] - 2020-09-24
 ### Changed
 - Updated `eg.oss.plugin.config` from 1.1.0 to 1.2.0.
 - Updated `failsafe.maven.plugin` from 2.22.0 from to 3.0.0-M5.
