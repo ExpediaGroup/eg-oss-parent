@@ -13,4 +13,4 @@ base functionality and need to publish artifacts to [Maven Central](https://sear
 # Legal
 This project is available under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
-Copyright 2019-2020 Expedia, Inc.
+Copyright 2019-2021 Expedia, Inc.
