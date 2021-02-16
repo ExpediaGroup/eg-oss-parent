@@ -77,7 +77,6 @@
     <docker.to.reference>${dockerhub.url}/${docker.registry}/${docker.to.image}:${docker.to.tag}</docker.to.reference>
     <docker.container.port>8080</docker.container.port>
 
-
     <!-- EG specific plugin properties -->
     <checkstyle.config>${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
     <mycila.config.header>${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
