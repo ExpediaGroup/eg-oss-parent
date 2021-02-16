@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.3.0] - 2021-02-16
 ### Added
-- Added jib plugin configuration.
+- Added [Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), version 2.7.1 with a default docker configuration.
 
 ## [2.2.0] - 2021-02-08
 ### Added
