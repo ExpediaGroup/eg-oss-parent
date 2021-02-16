@@ -63,8 +63,10 @@
     <maven.release.plugin.version>3.0.0-M1</maven.release.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
     <spotless.maven.plugin.version>2.4.1</spotless.maven.plugin.version>
-
+    <git.commit.id.maven.plugin.version>4.0.3</git.commit.id.maven.plugin.version>
     <jib.maven.plugin.version>2.7.1</jib.maven.plugin.version>
+
+
     <docker.registry>expediagroup</docker.registry>
     <dockerhub.url>docker.io</dockerhub.url>
     <!-- default docker image 'from' references (can be overridden in child projects if needed) -->
@@ -352,6 +354,28 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+          <version>${git.commit.id.maven.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>get-git-info</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>revision</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <generateGitPropertiesFile>false</generateGitPropertiesFile>
+            <dateFormat>yyyy-MM-dd'T'HH:mm:ss'Z'</dateFormat>
+            <dateFormatTimeZone>GMT</dateFormatTimeZone>
+            <includeOnlyProperties>
+              <includeOnlyProperty>^git.commit.time$</includeOnlyProperty>
+            </includeOnlyProperties>
+          </configuration>
+        </plugin>
+        <plugin>
           <groupId>com.google.cloud.tools</groupId>
           <artifactId>jib-maven-plugin</artifactId>
           <version>${jib.maven.plugin.version}</version>
@@ -383,7 +407,8 @@
               </auth>
             </to>
             <container>
-              <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+              <creationTime>${git.commit.time}</creationTime>
+              <filesModificationTime>${git.commit.time}</filesModificationTime>
               <ports>
                 <port>${docker.container.port}</port>
               </ports>
