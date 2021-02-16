@@ -64,7 +64,7 @@
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
     <spotless.maven.plugin.version>2.4.1</spotless.maven.plugin.version>
 
-    <jib.version>2.7.1</jib.version>
+    <jib.maven.plugin.version>2.7.1</jib.maven.plugin.version>
     <docker.registry>expediagroup</docker.registry>
     <dockerhub.url>docker.io</dockerhub.url>
     <!-- default docker image 'from' references (can be overridden in child projects if needed) -->
