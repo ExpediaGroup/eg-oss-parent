@@ -66,7 +66,6 @@
     <git.commit.id.maven.plugin.version>4.0.3</git.commit.id.maven.plugin.version>
     <jib.maven.plugin.version>2.7.1</jib.maven.plugin.version>
 
-
     <docker.registry>expediagroup</docker.registry>
     <dockerhub.url>docker.io</dockerhub.url>
     <!-- default docker image 'from' references (can be overridden in child projects if needed) -->
