@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.0] - 2021-02-16
+### Added
+- Added [Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), version 2.7.1 with a default docker configuration.
+
 ## [2.2.0] - 2021-02-08
 ### Added
 - A `javadoc.source.version` property (set to `8` by default).
