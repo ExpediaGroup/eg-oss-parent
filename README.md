@@ -12,7 +12,7 @@ base functionality and need to publish artifacts to [Maven Central](https://sear
 
 # Plugins
 ## [Jib Maven plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin)
-This plugin builds an optimized Docker image for a Java application and uploads it to Artifactory.
+This plugin builds an optimized Docker image for a Java application and uploads it to [Docker Hub](https://hub.docker.com/).
 
 To setup the plugin in a child project add the following plugin references. The `git-commit-id-plugin` provides the 
 last commit time to be used for the `creationTime` and `filesModificationTime` properties in the jib plugin configuration.
