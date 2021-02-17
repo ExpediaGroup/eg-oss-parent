@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.0] - 2021-02-17
+### Added
+- A `javadoc.source.detect.java.api.link` property (set to `false` by default) to fix build issues for Java 11.
+
 ## [2.3.0] - 2021-02-16
 ### Added
 - Added [Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), version 2.7.1 with a default docker configuration.
