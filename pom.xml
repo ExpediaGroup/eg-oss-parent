@@ -48,6 +48,7 @@
     <failsafe.maven.plugin.version>3.0.0-M5</failsafe.maven.plugin.version>
     <jacoco.version>0.8.6</jacoco.version>
     <javadoc.source.version>8</javadoc.source.version>
+    <javadoc.source.detect.java.api.link>false</javadoc.source.detect.java.api.link>
     <license.maven.plugin.version>3.0</license.maven.plugin.version>
     <lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
     <maven.checkstyle.plugin.version>3.1.1</maven.checkstyle.plugin.version>
@@ -242,6 +243,7 @@
         <configuration>
           <encoding>${project.build.sourceEncoding}</encoding>
           <source>${javadoc.source.version}</source>
+          <detectJavaApiLink>${javadoc.source.detect.java.api.link}</detectJavaApiLink>
         </configuration>
         <executions>
           <execution>
