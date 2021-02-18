@@ -276,7 +276,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.surefire.plugin.version}</version>
-      </plugin>      
+      </plugin>
       <!-- used to determine the current year -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -511,6 +511,15 @@
             <groupId>org.eluder.coveralls</groupId>
             <artifactId>coveralls-maven-plugin</artifactId>
             <version>${coveralls.maven.plugin.version}</version>
+            <dependencies>
+              <dependency>
+                <!-- TODO: this can be removed when a version of coveralls-maven-plugin
+                  that supports Java >=11 is released -->
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.2.3</version>
+              </dependency>
+            </dependencies>
           </plugin>
         </plugins>
       </build>
