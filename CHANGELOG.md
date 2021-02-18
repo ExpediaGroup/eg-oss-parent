@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.2] - TBD
+### Added
+- A dependency on `javax.xml.bind:jaxb-api` for `coveralls-maven-plugin` so that it can be used with Java 11.
+
 ## [2.3.1] - 2021-02-17
 ### Added
 - Added `javadoc.source.detect.java.api.link` property (set to `false` by default) to fix build issues for Java 11.
