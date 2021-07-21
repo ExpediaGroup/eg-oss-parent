@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.1] - 2021-07-21
+### Changed
+- Configured the `sonatype-oss-release` profile to enable releases from Github Actions.
+
 ## [2.3.2] - 2021-02-18
 ### Added
 - A dependency on `javax.xml.bind:jaxb-api` for `coveralls-maven-plugin` so that it can be used with Java 11.
