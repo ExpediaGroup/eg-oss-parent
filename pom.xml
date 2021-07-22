@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>2.3.4-SNAPSHOT</version>
+  <version>2.3.3-SNAPSHOT</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
@@ -11,8 +12,11 @@
   <name>Expedia Group Open Source Parent</name>
 
   <scm>
-    <connection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git</developerConnection>
+    <connection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git
+    </connection>
+    <developerConnection>
+      scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git
+    </developerConnection>
     <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
     <tag>HEAD</tag>
   </scm>
@@ -82,7 +86,8 @@
     <!-- EG specific plugin properties -->
     <checkstyle.config>${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
     <mycila.config.header>${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
-    <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
+    <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml
+    </mycila.config.header.def>
     <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
   </properties>
 
@@ -113,9 +118,11 @@
         </executions>
         <configuration>
           <java>
-            <removeUnusedImports />
+            <removeUnusedImports/>
             <importOrder>
-              <order>\#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels</order>
+              <order>
+                \#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels
+              </order>
             </importOrder>
           </java>
         </configuration>
@@ -484,11 +491,45 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven.source.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>sonatype-oss-release-github-actions</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven.gpg.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
                 <configuration>
                   <!-- Prevent `gpg` from using pinentry programs -->
                   <gpgArguments>
-                      <arg>--pinentry-mode</arg>
-                      <arg>loopback</arg>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
                   </gpgArguments>
                 </configuration>
               </execution>
