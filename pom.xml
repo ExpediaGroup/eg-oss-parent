@@ -12,11 +12,8 @@
   <name>Expedia Group Open Source Parent</name>
 
   <scm>
-    <connection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git
-    </connection>
-    <developerConnection>
-      scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git
-    </developerConnection>
+    <connection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ExpediaGroup/${project.artifactId}.git</developerConnection>
     <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
     <tag>HEAD</tag>
   </scm>
@@ -86,8 +83,7 @@
     <!-- EG specific plugin properties -->
     <checkstyle.config>${project.build.directory}/plugin-config/checkstyle/eg-checkstyle.xml</checkstyle.config>
     <mycila.config.header>${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
-    <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml
-    </mycila.config.header.def>
+    <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
     <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
   </properties>
 
@@ -120,9 +116,7 @@
           <java>
             <removeUnusedImports/>
             <importOrder>
-              <order>
-                \#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels
-              </order>
+              <order>\#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels</order>
             </importOrder>
           </java>
         </configuration>
