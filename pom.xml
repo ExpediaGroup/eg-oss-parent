@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>2.3.4-SNAPSHOT</version>
+  <version>2.4.0-SNAPSHOT</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
@@ -113,7 +114,7 @@
         </executions>
         <configuration>
           <java>
-            <removeUnusedImports />
+            <removeUnusedImports/>
             <importOrder>
               <order>\#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels</order>
             </importOrder>
@@ -469,8 +470,48 @@
         </plugins>
       </build>
     </profile>
+<!--
+        The profile `sonatype-oss-release` is going to be deprecated in the future because we will use
+        `sonatype-oss-release-github-actions` instead, which allows to do releases in Github instead of Jenkins.
+        The `sonatype-oss-release-github-actions` profile doesn't work in Jenkins so we will leave it here for
+        backwards compatibility, but you should migrate to use that one whenever it is possible.
+-->
     <profile>
       <id>sonatype-oss-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven.gpg.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven.source.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>sonatype-oss-release-github-actions</id>
       <build>
         <plugins>
           <plugin>
@@ -487,8 +528,8 @@
                 <configuration>
                   <!-- Prevent `gpg` from using pinentry programs -->
                   <gpgArguments>
-                      <arg>--pinentry-mode</arg>
-                      <arg>loopback</arg>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
                   </gpgArguments>
                 </configuration>
               </execution>
