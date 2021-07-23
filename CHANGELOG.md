@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.3.3] - 2021-07-22
-### Changed
-- Configured the `sonatype-oss-release` profile to enable releases from Github Actions.
+## [2.3.3] - 2021-07-23
+### Added
+- Added the `sonatype-oss-release-github-actions` profile to enable releases from Github Actions.
 
 ## [2.3.2] - 2021-02-18
 ### Added
