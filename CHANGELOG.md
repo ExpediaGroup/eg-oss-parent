@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.4.1] - 2021-07-26
+### Added
+- Added a new maven property: `spotless.config.import.order.def` that specifies the import order to be used from the `maven-spotless-plugin`.
+
 ## [2.4.0] - 2021-07-23
 ### Added
 - Added the `sonatype-oss-release-github-actions` profile to enable releases from Github Actions. This profile breaks the releases in Jenkins so `sonatype-oss-release` is still there for backwards compatibility, but it will become deprecated, so we encourage users to use `sonatype-oss-release-github-actions` instead.
