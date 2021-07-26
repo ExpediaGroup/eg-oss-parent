@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.4.1] - 2021-07-26
 ### Added
-- Added a new maven property: `spotless.config.import.order.def` that specifies the import order to be used from the `maven-spotless-plugin`.
+- Added two new properties related to the `maven-spotless-plugin`
+  * `spotless.config.import.order.def`: it specifies the import order to be applied.
+  * `spotless.config.execution.skip`: if set to true the spotless execution is skipped
 
 ## [2.4.0] - 2021-07-23
 ### Added
