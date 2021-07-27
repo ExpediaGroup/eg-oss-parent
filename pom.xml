@@ -84,6 +84,8 @@
     <mycila.config.header>${project.build.directory}/plugin-config/mycila/APACHE-2.txt</mycila.config.header>
     <mycila.config.header.def>${project.build.directory}/plugin-config/mycila/eg-definitions.xml</mycila.config.header.def>
     <spotbugs.config>${project.build.directory}/plugin-config/spotbugs/eg-spotbugs-exclude.xml</spotbugs.config>
+    <spotless.config.import.order.def>\#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels</spotless.config.import.order.def>
+    <spotless.config.execution.skip>false</spotless.config.execution.skip>
   </properties>
 
   <distributionManagement>
@@ -115,9 +117,10 @@
           <java>
             <removeUnusedImports />
             <importOrder>
-              <order>\#java,\#javax,\#org,\#,\#com,\#com.expedia,\#com.expediagroup,\#com.hotels,java,javax,org,,com,com.expedia,com.expediagroup,com.hotels</order>
+              <order>${spotless.config.import.order.def}</order>
             </importOrder>
           </java>
+          <skip>${spotless.config.execution.skip}</skip>
         </configuration>
       </plugin>
       <plugin>
