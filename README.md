@@ -1,5 +1,9 @@
 # eg-oss-parent
 
+## Status ⚠️
+
+This project is no longer in active development and will be archived in Jan 2022.
+
 ## Start using
 
 You can obtain this POM from Maven Central:
