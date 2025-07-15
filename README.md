@@ -1,8 +1,5 @@
 # eg-oss-parent
 
-## Status ⚠️
-
-This project is no longer in active development and will be archived in Jan 2022.
 
 ## Start using
 
@@ -50,4 +47,4 @@ If you experience timeouts, you can set the property `jib.httpTimeout` to a valu
 # Legal
 This project is available under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
-Copyright 2019-2021 Expedia, Inc.
+Copyright 2019-2025 Expedia, Inc.
