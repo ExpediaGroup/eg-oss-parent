@@ -11,6 +11,9 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
-        java-version: 8
+        distribution: 'adopt'
+        java-version: '8'
+        java-package: jdk
+        
     - name: Run Maven Targets
       run: mvn package --batch-mode --show-version --no-transfer-progress
