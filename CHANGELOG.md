@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.1] - 2025-07-21
+### Removed
+- reference to old profile.
+
 ## [3.0.0] - 2025-07-15
 ### Added
 - Support for new Sonatype deployment: https://central.sonatype.org/pages/ossrh-eol/
