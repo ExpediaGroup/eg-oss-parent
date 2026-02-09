@@ -63,7 +63,7 @@
     <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
     <maven.release.plugin.version>3.0.0-M1</maven.release.plugin.version>
     <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
-    <spotless.maven.plugin.version>2.4.1</spotless.maven.plugin.version>
+    <spotless.maven.plugin.version>2.46.1</spotless.maven.plugin.version>
     <git.commit.id.maven.plugin.version>4.0.3</git.commit.id.maven.plugin.version>
     <jib.maven.plugin.version>2.7.1</jib.maven.plugin.version>
 
