@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.0] - TBD
+## [3.1.0] - 2026-11-11
 ### Changed
 - Upgraded `central-publishing-maven-plugin` from 0.8.0 to 0.12.0, which fixes bundles built with Maven 3.10 being rejected by Central with "Bundle has content that does NOT have a .pom file".
 ### Added
