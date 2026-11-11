@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.1] - 2026-11-11
+## [3.1.2] - 2026-11-11
 ### Changed
-- Releases are signed with the `HCOM_GPG_PRIVATE_KEY` key, also used by other Expedia Group projects on Maven Central. Central rejected 3.1.0 because it could not find the public key of the previous signing key.
+- Releases run on `ubuntu-22.04`, as other Expedia Group projects that publish to Maven Central with the same signing key do. Central rejected the 3.1.0 and 3.1.1 signatures made on `ubuntu-24.04` because it could not find their public key.
+- Releases are signed with the `HCOM_GPG_PRIVATE_KEY` key, also used by other Expedia Group projects on Maven Central.
 - Upgraded `central-publishing-maven-plugin` from 0.8.0 to 0.12.0, which fixes bundles built with Maven 3.10 being rejected by Central with "Bundle has content that does NOT have a .pom file".
 ### Added
 - Properties to configure `central-publishing-maven-plugin` from child projects without redeclaring the `sonatype-oss-release-github-actions` profile:
@@ -14,8 +15,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `central.publishing.skip` (default `false`): set to `true` in a module to leave its artifacts out of the Central bundle, e.g. large distribution packages that exceed Central's publishing limits.
     - `central.publishing.checksums` (default `all`): set to `required` to publish only MD5 and SHA1 checksums.
 
+## [3.1.1] - 2026-11-11
+Failed to publish. The same changes were released as 3.1.2.
+
 ## [3.1.0] - 2026-11-11
-Failed to publish. The same changes were released as 3.1.1.
+Failed to publish. The same changes were released as 3.1.2.
 
 ## [3.0.1] - 2025-07-21
 ### Removed
