@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.0] - 2026-11-11
+### Changed
+- Upgraded `central-publishing-maven-plugin` from 0.8.0 to 0.12.0, which fixes bundles built with Maven 3.10 being rejected by Central with "Bundle has content that does NOT have a .pom file".
+### Added
+- Properties to configure `central-publishing-maven-plugin` from child projects without redeclaring the `sonatype-oss-release-github-actions` profile:
+    - `central.publishing.maven.plugin.version` (default `0.12.0`).
+    - `central.publishing.skip` (default `false`): set to `true` in a module to leave its artifacts out of the Central bundle, e.g. large distribution packages that exceed Central's publishing limits.
+    - `central.publishing.checksums` (default `all`): set to `required` to publish only MD5 and SHA1 checksums.
+
 ## [3.0.1] - 2025-07-21
 ### Removed
 - reference to old profile.

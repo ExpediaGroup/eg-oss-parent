@@ -3,7 +3,7 @@
 
   <groupId>com.expediagroup</groupId>
   <artifactId>eg-oss-parent</artifactId>
-  <version>3.0.2-SNAPSHOT</version>
+  <version>3.1.0-SNAPSHOT</version>
   <description>Parent POM for Expedia Group open source projects</description>
   <packaging>pom</packaging>
   <url>https://github.com/ExpediaGroup/eg-oss-parent</url>
@@ -43,6 +43,9 @@
     <jdk.version>1.8</jdk.version>
 
     <buildnumber.maven.plugin.version>1.4</buildnumber.maven.plugin.version>
+    <central.publishing.maven.plugin.version>0.12.0</central.publishing.maven.plugin.version>
+    <central.publishing.skip>false</central.publishing.skip>
+    <central.publishing.checksums>all</central.publishing.checksums>
     <coveralls.maven.plugin.version>4.3.0</coveralls.maven.plugin.version>
     <eg.oss.plugin.config.version>1.2.0</eg.oss.plugin.config.version>
     <failsafe.maven.plugin.version>3.0.0-M5</failsafe.maven.plugin.version>
@@ -457,12 +460,14 @@
           <plugin>
               <groupId>org.sonatype.central</groupId>
               <artifactId>central-publishing-maven-plugin</artifactId>
-              <version>0.8.0</version>
+              <version>${central.publishing.maven.plugin.version}</version>
               <extensions>true</extensions>
               <configuration>
                 <publishingServerId>central</publishingServerId>
                 <autoPublish>true</autoPublish>
                 <waitUntil>published</waitUntil>
+                <skipPublishing>${central.publishing.skip}</skipPublishing>
+                <checksums>${central.publishing.checksums}</checksums>
               </configuration>
           </plugin>
           <plugin>

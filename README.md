@@ -44,6 +44,17 @@ If you want to disable the plugin add the argument `-Djib.skip=true` when you us
 
 If you experience timeouts, you can set the property `jib.httpTimeout` to a value larger than the default of 20s on the command line (e.g. `-Djib.httpTimeout=60000` for 60s). At the time of writing, this property is not available as a build configuration parameter, so it has to be added manually. For more information please refer to [System Properties](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#system-properties).
 
+## [Central Publishing Maven plugin](https://central.sonatype.org/publish/publish-portal-maven/)
+This plugin publishes artifacts to Maven Central. It is enabled by the `sonatype-oss-release-github-actions` profile, e.g. `mvn deploy --activate-profiles sonatype-oss-release-github-actions`.
+
+There are some default configuration properties that can be changed:
+
+Property | Default | Description
+--- | --- | ---
+`central.publishing.maven.plugin.version` | 0.12.0 | Version of the plugin
+`central.publishing.skip` | false | Set to `true` in a module to leave its artifacts out of the Central bundle, e.g. large distribution packages that exceed [Central's publishing limits](https://central.sonatype.org/publish/maven-central-publishing-limits/)
+`central.publishing.checksums` | all | Checksums to publish: `all` (MD5, SHA1, SHA256, SHA512), `required` (MD5, SHA1) or `none`
+
 # Legal
 This project is available under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
