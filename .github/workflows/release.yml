@@ -38,12 +38,23 @@ jobs:
       - name: Show signing key
         run: gpg --list-secret-keys --keyid-format LONG --with-subkey-fingerprints
 
+      - name: Set up Maven 3.9.16
+        env:
+          MAVEN_VERSION: 3.9.16
+          MAVEN_SHA512: 831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0cafb8338851f90780735568773e0a6cd07bbec107cda0b896b008b861075358b6f6
+        run: |
+          archive="$RUNNER_TEMP/apache-maven-$MAVEN_VERSION-bin.tar.gz"
+          curl -fsSL -o "$archive" "https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz"
+          echo "$MAVEN_SHA512  $archive" | sha512sum -c -
+          tar -xzf "$archive" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/apache-maven-$MAVEN_VERSION/bin" >> "$GITHUB_PATH"
+
       - name: Configure Git User
         run: |
           git config user.email "oss@expediagroup.com"
           git config user.name "eg-oss-ci"
       - name: Run Maven Targets
-        run: mvn release:prepare release:perform --settings $GITHUB_WORKSPACE/settings.xml --activate-profiles sonatype-oss-release-github-actions --batch-mode --show-version --no-transfer-progress
+        run: mvn release:prepare release:perform --settings $GITHUB_WORKSPACE/settings.xml -Dcentral.publishing.maven.plugin.version=0.8.0 -Darguments="-Dcentral.publishing.maven.plugin.version=0.8.0" --activate-profiles sonatype-oss-release-github-actions --batch-mode --show-version --no-transfer-progress
         env:
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
