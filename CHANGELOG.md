@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.2] - 2026-11-11
+## [3.1.2] - 2026-11-12
 ### Changed
-- Releases run on `ubuntu-22.04`, as other Expedia Group projects that publish to Maven Central with the same signing key do. Central rejected the 3.1.0 and 3.1.1 signatures made on `ubuntu-24.04` because it could not find their public key.
+- The release workflow logs the fingerprints of the imported signing key, to diagnose signatures rejected by Central.
 - Releases are signed with the `HCOM_GPG_PRIVATE_KEY` key, also used by other Expedia Group projects on Maven Central.
 - Upgraded `central-publishing-maven-plugin` from 0.8.0 to 0.12.0, which fixes bundles built with Maven 3.10 being rejected by Central with "Bundle has content that does NOT have a .pom file".
 ### Added
