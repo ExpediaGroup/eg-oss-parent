@@ -51,9 +51,11 @@ There are some default configuration properties that can be changed:
 
 Property | Default | Description
 --- | --- | ---
-`central.publishing.maven.plugin.version` | 0.12.0 | Version of the plugin
-`central.publishing.skip` | false | Set to `true` in a module to leave its artifacts out of the Central bundle, e.g. large distribution packages that exceed [Central's publishing limits](https://central.sonatype.org/publish/maven-central-publishing-limits/)
+`central.publishing.maven.plugin.version` | 0.8.0 | Version of the plugin
+`central.publishing.skip` | false | Requires plugin version 0.9.0 or later to apply per module. Set to `true` in a module to leave its artifacts out of the Central bundle, e.g. large distribution packages that exceed [Central's publishing limits](https://central.sonatype.org/publish/maven-central-publishing-limits/)
 `central.publishing.checksums` | all | Checksums to publish: `all` (MD5, SHA1, SHA256, SHA512), `required` (MD5, SHA1) or `none`
+
+Plugin 0.8.0 builds bundles that Central rejects when run with Maven 3.10 ("Bundle has content that does NOT have a .pom file"), so release with Maven 3.9.x. Plugin 0.12.0 fixes that bug, but Central rejected the signatures of this project's releases built with Maven 3.10 and plugin 0.12.0, while it accepted the same signing key with Maven 3.9.16 and plugin 0.8.0.
 
 # Legal
 This project is available under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).

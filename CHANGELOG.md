@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.3] - 2026-11-17
+### Changed
+- The default `central.publishing.maven.plugin.version` is 0.8.0 again, as in 3.0.1. Central rejected the signatures of releases built with Maven 3.10 and plugin 0.12.0 ("Could not find a public key by the key fingerprint"), and accepted the same key with Maven 3.9.16 and plugin 0.8.0. Projects that need a newer plugin, e.g. for per-module `central.publishing.skip` (0.9.0 or later), can set the property.
+- The release workflow uses Maven 3.9.16 and the default plugin version instead of overriding it on the command line.
+
 ## [3.1.2] - 2026-11-12
 ### Changed
 - The release workflow logs the fingerprints of the imported signing key, to diagnose signatures rejected by Central.
