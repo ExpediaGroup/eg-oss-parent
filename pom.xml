@@ -43,7 +43,7 @@
     <jdk.version>1.8</jdk.version>
 
     <buildnumber.maven.plugin.version>1.4</buildnumber.maven.plugin.version>
-    <central.publishing.maven.plugin.version>0.8.0</central.publishing.maven.plugin.version>
+    <central.publishing.maven.plugin.version>0.12.0</central.publishing.maven.plugin.version>
     <central.publishing.skip>false</central.publishing.skip>
     <central.publishing.checksums>all</central.publishing.checksums>
     <coveralls.maven.plugin.version>4.3.0</coveralls.maven.plugin.version>
