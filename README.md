@@ -55,6 +55,8 @@ Property | Default | Description
 `central.publishing.skip` | false | Set to `true` in a module to leave its artifacts out of the Central bundle, e.g. large distribution packages that exceed [Central's publishing limits](https://central.sonatype.org/publish/maven-central-publishing-limits/)
 `central.publishing.checksums` | all | Checksums to publish: `all` (MD5, SHA1, SHA256, SHA512), `required` (MD5, SHA1) or `none`
 
+Release with Maven 3.9.x: Central rejected the signatures of this project's releases built with Maven 3.10 ("Could not find a public key by the key fingerprint").
+
 # Legal
 This project is available under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
